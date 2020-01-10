@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KeyValueMap-GetSettings" mapIdentifier="ModernIncentivesProxySettings">
+    <DisplayName>KeyValueMap-GetSettings</DisplayName>
+    <Properties/>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <Get assignTo="KVM.ProxySettings.Policy-SpikeArrest-Rate" index="1">
+        <Key>
+            <Parameter>SpikeArrest-Rate</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="KVM.ProxySettings.Policy-Quota-Count" index="1">
+        <Key>
+            <Parameter>Quota-Count</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="KVM.ProxySettings.Policy-Quota-Interval" index="1">
+        <Key>
+            <Parameter>Quota-Interval</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="KVM.ProxySettings.Policy-Quota-TimeUnit" index="1">
+        <Key>
+            <Parameter>Quota-TimeUnit</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="KVM.ProxySettings.Policy-RequestMessageSize" index="1">
+        <Key>
+            <Parameter>RequestMessageSize</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="KVM.ProxySettings.Policy-ResponseMessageSize" index="1">
+        <Key>
+            <Parameter>ResponseMessageSize</Parameter>
+        </Key>
+    </Get>
+    <Scope>apiproxy</Scope>
+</KeyValueMapOperations>

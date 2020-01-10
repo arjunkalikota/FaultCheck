@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="error_handling">
+            <Condition>raisefault.failed!="true"</Condition>
+            <Step>
+                <Name>SF_Common_ErrorHandling_APIGW_V02</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>VerifyAPIKey-Client</Name>
+            </Step>
+            <Step>
+                <Name>KeyValueMap-GetSettings</Name>
+            </Step>
+            <Step>
+                <Name>SpikeArrest-Minute</Name>
+            </Step>
+            <Step>
+                <Name>Quota-Hourly</Name>
+            </Step>
+            <Step>
+                <Name>JavaScript-CalculateRequestContentLength</Name>
+            </Step>
+            <Step>
+                <Name>RaiseFault-RequestSizeLimit</Name>
+                <Condition>(request.content.ExceededLength GreaterThan 0)</Condition>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>JavaScript-CalculateResponseContentLength</Name>
+            </Step>
+            <Step>
+                <Name>RaiseFault-ResponseSizeLimit</Name>
+                <Condition>(reponse.content.ExceededLength GreaterThan 0)</Condition>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="getConsumerOrders">
+            <Description>Get availed orders</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*/orders") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="NotFound">
+            <Request>
+                <Step>
+                    <Name>RaiseFault-NotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/consumer/modernincentives/v1/consumers</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

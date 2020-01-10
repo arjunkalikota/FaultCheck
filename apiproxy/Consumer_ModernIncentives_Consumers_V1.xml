@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="3" name="Consumer_ModernIncentives_Consumers_V1">
+    <Basepaths>/consumer/modernincentives/v1/consumers</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1571806636757</CreatedAt>
+    <CreatedBy>suyash_jain@mindtree.com</CreatedBy>
+    <Description>This API provides orders availed by consumer</Description>
+    <DisplayName>Consumer_ModernIncentives_Consumers_V1</DisplayName>
+    <LastModifiedAt>1574937499999</LastModifiedAt>
+    <LastModifiedBy>suyash_jain@mindtree.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:71373d117b2724f8b4a7b099366b691e9fcfc2f39b18e62fe8568b66f277103ddcf0fb497ee7b54835c9338d4a1e1215cd57d3058929240859c195d6d32cc373</ManifestVersion>
+    <Policies>
+        <Policy>AssignMessage-SetJWT</Policy>
+        <Policy>GenerateJWT-ModernIncentivesToken</Policy>
+        <Policy>JavaScript-CalculateRequestContentLength</Policy>
+        <Policy>JavaScript-CalculateResponseContentLength</Policy>
+        <Policy>KeyValueMap-GetSecrets</Policy>
+        <Policy>KeyValueMap-GetSettings</Policy>
+        <Policy>LookupCache-JWT</Policy>
+        <Policy>PopulateCache-JWT</Policy>
+        <Policy>Quota-Hourly</Policy>
+        <Policy>RaiseFault-NotFound</Policy>
+        <Policy>RaiseFault-RequestSizeLimit</Policy>
+        <Policy>RaiseFault-ResponseSizeLimit</Policy>
+        <Policy>SF_Common_ErrorHandling_APIGW_V02</Policy>
+        <Policy>SF_Common_ErrorHandling_Backend</Policy>
+        <Policy>SpikeArrest-Minute</Policy>
+        <Policy>VerifyAPIKey-Client</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+        <Resource>jsc://CalculateRequestContentLength.js</Resource>
+        <Resource>jsc://CalculateResponseContentLength.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

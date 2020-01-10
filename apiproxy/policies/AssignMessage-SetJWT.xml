@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage-SetJWT">
+    <DisplayName>AssignMessage-SetJWT</DisplayName>
+    <Set>
+        <Headers>
+            <Header name="Authorization">Bearer {distribution-jwt}</Header>
+        </Headers>
+    </Set>
+    <Remove>
+        <Headers>
+            <Header name="apikey"/>
+        </Headers>
+    </Remove>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

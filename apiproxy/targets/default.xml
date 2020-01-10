@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <DefaultFaultRule>
+        <Step>
+            <Name>SF_Common_ErrorHandling_Backend</Name>
+        </Step>
+    </DefaultFaultRule>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>LookupCache-JWT</Name>
+            </Step>
+            <Step>
+                <Condition>lookupcache.LookupCache-JWT.cachehit == "false"</Condition>
+                <Name>KeyValueMap-GetSecrets</Name>
+            </Step>
+            <Step>
+                <Name>GenerateJWT-ModernIncentivesToken</Name>
+            </Step>
+            <Step>
+                <Condition>lookupcache.LookupCache-JWT.cachehit == "false"</Condition>
+                <Name>PopulateCache-JWT</Name>
+            </Step>
+            <Step>
+                <Name>AssignMessage-SetJWT</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows/>
+    <HTTPTargetConnection>
+        <LoadBalancer>
+            <Server name="Consumer_ModernIncentives_Orders_ServiceHost"/>
+        </LoadBalancer>
+        <!-- <Path>/v1/consumers/{consumerId}/orders</Path> -->
+        <Path>/v1/consumers</Path>
+    </HTTPTargetConnection>
+</TargetEndpoint>

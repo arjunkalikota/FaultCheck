@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota async="false" continueOnError="false" enabled="true" name="Quota-Hourly">
+    <DisplayName>Quota-Hourly</DisplayName>
+    <Allow count="11500" countRef="KVM.ProxySettings.Policy-Quota-Count"/>
+    <Interval ref="KVM.ProxySettings.Policy-Quota-Interval">24</Interval>
+    <TimeUnit ref="KVM.ProxySettings.Policy-Quota-TimeUnit">hour</TimeUnit>
+    <Distributed>true</Distributed>
+    <Synchronous>true</Synchronous>
+</Quota>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LookupCache async="false" continueOnError="false" enabled="true" name="LookupCache-JWT">
+    <DisplayName>LookupCache-JWT</DisplayName>
+    <CacheKey>
+        <KeyFragment ref="request.header.apikey"/>
+    </CacheKey>
+    <Scope>Exclusive</Scope>
+    <AssignTo>distribution-jwt</AssignTo>
+</LookupCache>

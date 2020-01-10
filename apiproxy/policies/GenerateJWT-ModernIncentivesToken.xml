@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateJWT async="false" continueOnError="false" enabled="true" name="GenerateJWT-ModernIncentivesToken">
+    <DisplayName>GenerateJWT-ModernIncentivesToken</DisplayName>
+    <Algorithm>RS256</Algorithm>
+    <PrivateKey>
+        <Value ref="private.KVM.ProxySecrets.JWT-Private-Key"/>
+        <Id ref="private.KVM.ProxySecrets.KID"/>
+    </PrivateKey>
+    <Subject ref="verifyapikey.VerifyAPIKey-Client.app.id"/>
+    <Issuer>https://pgcsauthnp.z20.web.core.windows.net</Issuer>
+    <Audience>Consumer-ModernIncentives-API</Audience>
+    <ExpiresIn>1h</ExpiresIn>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AdditionalClaims>
+        <Claim name="appId" type="string" ref="verifyapikey.VerifyAPIKey-Client.app.id"/>
+        <Claim name="appName" type="string" ref="verifyapikey.VerifyAPIKey-Client.app.name"/>
+    </AdditionalClaims>
+    <OutputVariable>distribution-jwt</OutputVariable>
+</GenerateJWT>

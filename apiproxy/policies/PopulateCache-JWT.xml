@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PopulateCache-JWT">
+    <DisplayName>PopulateCache-JWT</DisplayName>
+    <CacheKey>
+        <KeyFragment ref="request.header.apikey"/>
+    </CacheKey>
+    <Scope>Exclusive</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>3500</TimeoutInSec>
+    </ExpirySettings>
+    <Source>distribution-jwt</Source>
+</PopulateCache>
